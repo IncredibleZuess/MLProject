@@ -1,0 +1,15 @@
+# ITRI626: Microcontroller Image Classification Dependencies
+# For Windows, macOS, and standard Linux environments without devenv
+
+torch>=2.2.0
+torchvision>=0.17.0
+numpy>=1.26.0,<3.0.0
+pillow>=10.0.0
+pandas>=2.2.0
+scikit-learn>=1.4.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+tqdm>=4.66.0
+timm>=0.9.12
+ipykernel>=6.29.0
+jupyterlab>=4.0.0

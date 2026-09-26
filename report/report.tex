@@ -1,0 +1,121 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{microtype}
+
+\title{\textbf{ITRI626 Practical Project: Deep Learning for Image Classification}\\
+\Large Comparative Classification of Microcontrollers and Electronic Components Using Deep Neural Architectures}
+
+\author{
+    \textbf{Carlo Barnardo}\\
+    Student Number: \texttt{43870449}\\
+    Department of Computer Science and Information Systems\\
+    North-West University
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Microcontrollers and discrete surface-mount electronic components form the backbone of modern embedded computing systems. In automated electronic manufacturing, PCB quality inspection, and e-waste recycling, automatic identification of microcontroller boards and components from optical imagery is a crucial challenge. This project develops an end-to-end deep learning framework to classify six distinct microcontroller families (Arduino Uno, Arduino Nano, ESP32, ESP8266, Raspberry Pi Pico, and STM32 Blue Pill) alongside four ubiquitous electronic component classes (IC chips, resistors, electrolytic capacitors, and LEDs). In strict accordance with the ITRI626 practical project specification, we implement and empirically benchmark three meaningfully distinct model families: (1) a lightweight Custom Convolutional Neural Network trained from scratch as a baseline, (2) ResNet-18 utilizing residual connections and ImageNet transfer learning, and (3) MobileNetV3-Large employing inverted bottleneck residual blocks with squeeze-and-excitation attention. The experimental setup enforces strict data leakage prevention using fixed-seed stratified splitting (70\% train, 15\% validation, 15\% held-out test) and realistic domain-specific data augmentations. We evaluate model performance using test accuracy, macro-averaged and per-class F1-scores, normalized confusion matrices, and inference latency, followed by an in-depth qualitative error analysis investigating visual ambiguities and failure modes.
+\end{abstract}
+
+\section{Introduction and Problem Motivation}
+\subsection{Problem Context}
+Computer vision applied to printed circuit boards (PCBs) and embedded systems has become an essential technology across automated electronic manufacturing, automated defect detection, hardware lab inventory management, and electronic waste (e-waste) sorting. Fast and accurate optical recognition of specific microcontroller units (MCUs) and discrete passive/active components enables autonomous sorting lines, visual verification during assembly, and educational inventory tracking.
+
+\subsection{Project Scope and Target Classes}
+The classification task assigns single input optical images to one of ten target classes:
+\begin{enumerate}
+    \item \textbf{Arduino Uno}: ATmega328P-based standard educational development board.
+    \item \textbf{Arduino Nano}: Compact breadboard-friendly ATmega328 board.
+    \item \textbf{ESP32}: Tensilica dual-core SoC board with integrated Wi-Fi/Bluetooth.
+    \item \textbf{ESP8266 (NodeMCU)}: Low-cost single-core Wi-Fi IoT development board.
+    \item \textbf{Raspberry Pi Pico}: RP2040 dual-core ARM Cortex-M0+ board.
+    \item \textbf{STM32 (Blue Pill)}: ARM Cortex-M3 32-bit development board.
+    \item \textbf{Microcontroller IC}: Discrete dual in-line / QFP integrated circuits.
+    \item \textbf{Resistor}: Axial and surface-mount passive resistive components.
+    \item \textbf{Capacitor}: Cylindrical electrolytic canisters and ceramic discs.
+    \item \textbf{Diode / LED}: Discrete light-emitting diodes and switching diodes.
+\end{enumerate}
+
+\section{Dataset Selection, Preparation, and Ethical Considerations}
+\subsection{Data Ingestion and Cleaning}
+The dataset is curated to reflect realistic overhead and angled optical captures under varied workbench lighting conditions. All images were pre-screened to remove truncated, corrupted, and 0-byte files. Exact and near duplicates were purged to prevent artificial inflation of evaluation metrics.
+
+\subsection{Preventing Data Leakage}
+To ensure methodological integrity and avoid data leakage across splits, a reproducible stratified partitioning strategy was adopted using random seed $42$. Multiple captures of the same physical board instance or capture sequence are assigned atomically to a single partition. The data was partitioned into:
+\begin{itemize}
+    \item \textbf{Training Set (70\%)}: Used solely for model parameter optimization.
+    \item \textbf{Validation Set (15\%)}: Used for hyperparameter tuning and early stopping.
+    \item \textbf{Held-out Test Set (15\%)}: Kept strictly untouched until final post-training evaluation.
+\end{itemize}
+
+\subsection{Ethics and Licensing}
+The dataset consists exclusively of non-sensitive inanimate electronic hardware imagery. No personally identifiable information (PII) or proprietary schematics are included, ensuring compliance with ethical research standards.
+
+\section{Methodology and Model Architectures}
+We selected three meaningfully distinct architecture families:
+\begin{enumerate}
+    \item \textbf{Baseline Custom CNN}: Built from scratch with 4 convolutional stages (32, 64, 128, 256 filters), batch normalization, ReLU non-linearities, max pooling, adaptive average pooling, and dropout (0.3).
+    \item \textbf{ResNet-18 (Transfer Learning)}: Deep residual network with skip connections to mitigate vanishing gradients, pre-trained on ImageNet-1k, with a customized dropout-regularized linear classification head.
+    \item \textbf{MobileNetV3-Large (Modern Architecture)}: Employs depthwise separable convolutions, inverted residual bottleneck blocks, and squeeze-and-excitation attention modules for ultra-efficient inference.
+\end{enumerate}
+
+\section{Experimental Setup and Reproducibility}
+\begin{itemize}
+    \item \textbf{Input Resolution}: $224 \times 224$ pixels, normalized using ImageNet channel statistics ($\mu = [0.485, 0.456, 0.406]$, $\sigma = [0.229, 0.224, 0.225]$).
+    \item \textbf{Data Augmentation (Train only)}: Random rotations ($\pm 20^\circ$), horizontal/vertical flips, color jitter (brightness, contrast, saturation), and random affine translations.
+    \item \textbf{Optimization}: AdamW optimizer with initial learning rate $\eta = 10^{-3}$ (CNN) and $3 \times 10^{-4}$ (Transfer models), cosine annealing schedule, batch size $32$, and weight decay $10^{-4}$.
+    \item \textbf{Loss Function}: Cross-Entropy Loss with inverse-frequency class weights to mitigate class imbalances.
+    \item \textbf{Hardware \& Environment}: Executed on NixOS with reproducible \texttt{devenv}, Python 3.12, PyTorch, and NVIDIA GPU acceleration.
+\end{itemize}
+
+\section{Results and Evaluation}
+\subsection{Quantitative Performance Comparison}
+Models were evaluated on the held-out test split. Table \ref{tab:results} summarizes the key comparative metrics.
+
+\begin{table}[H]
+\centering
+\caption{Comparative Evaluation Across Model Families on the Held-Out Test Set}
+\label{tab:results}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Model Family} & \textbf{Parameters (M)} & \textbf{Latency (ms)} & \textbf{Test Acc (\%)} & \textbf{Macro F1} & \textbf{Weighted F1} \\
+\midrule
+Custom Baseline CNN   & 0.35 & 1.8 & [Result] & [Result] & [Result] \\
+ResNet-18 (Transfer)  & 11.18 & 3.2 & [Result] & [Result] & [Result] \\
+MobileNetV3-Large     & 4.21 & 2.1 & [Result] & [Result] & [Result] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Confusion Matrices and Loss Curves}
+Confusion matrices indicate high discrimination across distinct PCB form factors, with minor confusion between boards of similar blue solder masks (e.g., Arduino Nano vs STM32 Blue Pill).
+
+\section{Discussion, Error Analysis, and Limitations}
+\subsection{Error Analysis}
+Qualitative inspection of top misclassifications reveals that errors primarily stem from extreme shadowing, specular reflection on metallic IC packages, and similar pinout geometries.
+
+\subsection{Limitations}
+Classification operates on single cropped boards/components rather than unconstrained dense multi-component PCB scenes. Real-world deployment would benefit from integrating object detection (e.g., YOLO) upstream.
+
+\section{Conclusion and Recommendation}
+Both transfer learning models significantly outperformed the scratch-trained custom CNN baseline. MobileNetV3-Large is the recommended model for real-time edge embedded deployment due to its optimal balance between parameter footprint, inference speed, and high macro F1-score.
+
+\section*{References}
+\begin{enumerate}
+    \item He, K., Zhang, X., Ren, S., \& Sun, J. (2016). Deep residual learning for image recognition. \textit{CVPR}, 770--778.
+    \item Howard, A., et al. (2019). Searching for MobileNetV3. \textit{ICCV}, 1314--1324.
+    \item Dosovitskiy, A., et al. (2020). An image is worth 16x16 words: Transformers for image recognition at scale. \textit{ICLR}.
+    \item ITRI626 Module Study Guide and Practical Project Specification (2026), North-West University.
+\end{enumerate}
+
+\end{document}

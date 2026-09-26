@@ -1,0 +1,29 @@
+[project]
+name = "mlproject"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Carlo Barnardo", email = "carlo.barnardo@gmail.com" }
+]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy>=2.0.0",
+    "pillow>=10.0.0",
+    "torch>=2.2.0",
+    "torchvision>=0.17.0",
+    "pandas>=2.2.0",
+    "scikit-learn>=1.4.0",
+    "matplotlib>=3.8.0",
+    "seaborn>=0.13.0",
+    "tqdm>=4.66.0",
+    "timm>=0.9.12",
+    "ipykernel>=6.29.0",
+]
+
+[project.scripts]
+mlproject = "mlproject:main"
+
+[build-system]
+requires = ["uv_build>=0.12.11,<0.13.0"]
+build-backend = "uv_build"
