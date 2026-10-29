@@ -1,7 +1,10 @@
+> The finished slide deck is the online Slides deck "ITRI626 Component Classification" (download as PowerPoint or PDF from its Share › Export menu). This outline is kept for reference; `oral_prep.md` has likely oral questions with answers.
+
 # ITRI626 Oral Presentation Outline
 ## Deep Learning for Microcontroller and Electronic Component Classification
 
-**Presenter / Group**: Carlo Barnardo  
+**Group**: Carlo Barnardo · Itumeleng Ntela · MEMBER 3  
+**Speakers**: Slides 1–3 Itumeleng Ntela (problem, dataset) · Slides 4–6 Carlo (method, setup) · Slides 7–9 MEMBER 3 (results, errors) · Slide 10 all  
 **Module**: ITRI626  
 **Lecturer**: Prof. Absalom Ezugwu | **Facilitator**: Mr. Bernard Swanepoel  
 
@@ -16,14 +19,14 @@
 - **Industry Need**: Fast, non-destructive optical identification of electronic boards and components.
 - **Challenges**:
   - Varied lighting, reflections on metallic solder joints, and component orientation.
-  - Visual similarity between boards sharing form factors and solder mask colors (e.g., blue Nano vs. Blue Pill).
+  - Visual similarity between boards sharing form factors and solder mask colors (e.g., Nano vs. ESP8266, inductor vs. transformer).
 - **Target Value**: Scalable automated visual inspection pipeline with minimal latency.
 
 ### Slide 3: Dataset Selection, Classes & Leakage Prevention
 - **10 Target Classes**:
-  - MCUs: Arduino Uno, Arduino Nano, ESP32, ESP8266, Raspberry Pi Pico, STM32 Blue Pill
-  - Components: Microcontroller IC, Resistor, Capacitor, LED
-- **Data Cleaning**: Removed duplicates, corrupt files, and ambiguous samples.
+  - Boards: Arduino Nano, ESP8266, Heltec ESP32 LoRa, Raspberry Pi 3 (Tanner dataset, MIT)
+  - Components: IC, Capacitor, Diode, Resistor, Inductor, Transformer (Faraji / Digi-Key)
+- **Data Cleaning**: corrupt files, MD5 exact duplicates, perceptual-hash near-duplicates (cross-class ones removed as uncertain labels). Use real counts from `cleaning_report.json`.
 - **Strict Data Partitioning**:
   - Split: **70% Train / 15% Validation / 15% Held-out Test**
   - Group-aware / stratified splitting with fixed random seed `42` to prevent data leakage between related capture sequences.
@@ -42,29 +45,28 @@
      - 4-stage convolutional extractor (32, 64, 128, 256 channels), BatchNorm, ReLU, MaxPool, AdaptiveAvgPool, Dropout.
   2. **ResNet-18** (Transfer Learning):
      - Residual skip connections avoiding vanishing gradients; pre-trained on ImageNet-1k.
-  3. **MobileNetV3-Large** (Modern Architecture):
-     - Inverted bottleneck blocks, depthwise separable convolutions, and Squeeze-and-Excitation attention for mobile/edge efficiency.
+  3. **ViT-B/16** (Vision Transformer, Transfer Learning):
+     - 196 image patches of 16×16 → 12 self-attention layers; no convolutions; ImageNet-1k pretrained.
+- **Transfer strategy**: full fine-tuning, small LR + 2-epoch warm-up, new dropout + linear head.
 
 ### Slide 6: Experimental Setup & Training Workflow
 - **Framework**: PyTorch + NixOS devenv environment.
 - **Loss**: Cross-Entropy Loss with inverse-frequency class weights (counters class imbalance).
-- **Optimization**: AdamW ($\eta = 10^{-3}$ for CNN, $3 \times 10^{-4}$ for Transfer), Cosine Annealing scheduler.
-- **Regularization**: Dropout (0.3), weight decay ($10^{-4}$), Early Stopping (patience: 5 epochs).
+- **Optimization**: AdamW; LR $10^{-3}$ (CNN), $3\times10^{-4}$ (ResNet-18), $5\times10^{-5}$ (ViT); warm-up + cosine; effective batch 32 for all (ViT 16×2 accumulation).
+- **Regularization**: Dropout (0.3), weight decay ($10^{-4}$), Early Stopping (patience: 7 epochs).
 
 ### Slide 7: Experimental Results & Model Comparison
 - **Metric Comparison Table**:
   - Test Accuracy, Macro-averaged F1, Weighted F1, Parameter Count, Inference Latency.
 - **Loss & Validation Curves**:
-  - Custom CNN shows slower convergence and higher final loss.
-  - ResNet-18 and MobileNetV3 converge rapidly with stable validation curves.
+  - FILL IN from `outputs/figures/validation_comparison.png` after the real run.
 
 ### Slide 8: Confusion Matrix & Key Classification Errors
 - **Confusion Matrix Analysis**:
-  - Strong discrimination across board types and components.
-  - Primary confusion points: Arduino Nano vs. STM32 Blue Pill (both rectangular blue PCBs).
+  - FILL IN: the largest off-diagonal cells (see `top_confusions` in `outputs/results/*_results.json`).
 - **Qualitative Error Analysis**:
   - Inspected top confident misclassifications.
-  - Specular reflection on shiny IC packaging obscured chip markings.
+  - FILL IN: show `misclassified_<best>.png` and name the causes you actually see.
 
 ### Slide 9: Limitations & Future Enhancements
 - **Current Limitations**:
@@ -74,6 +76,5 @@
   - Quantization (INT8) for microcontroller edge deployment via TensorRT / ONNX.
 
 ### Slide 10: Conclusion & Recommended Model
-- Pre-trained models substantially outperform the scratch-trained custom CNN baseline.
-- **Final Recommendation**: **MobileNetV3-Large**
-  - Yields competitive accuracy/F1 compared to ResNet-18 while cutting parameter count by $>60\%$ and delivering the fastest inference latency, making it ideal for edge sorting devices.
+- FILL IN after the real run: best model by macro-F1, and the recommendation weighing accuracy against size/latency
+  (ResNet-18 11.2 M params vs ViT-B/16 85.8 M).

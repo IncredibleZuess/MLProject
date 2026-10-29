@@ -1,0 +1,80 @@
+{
+  "classes": [
+    "arduino_nano",
+    "capacitor",
+    "diode",
+    "esp32_heltec_lora",
+    "esp8266",
+    "ic",
+    "inductor",
+    "raspberry_pi_3",
+    "resistor",
+    "transformer"
+  ],
+  "label_to_id": {
+    "arduino_nano": 0,
+    "capacitor": 1,
+    "diode": 2,
+    "esp32_heltec_lora": 3,
+    "esp8266": 4,
+    "ic": 5,
+    "inductor": 6,
+    "raspberry_pi_3": 7,
+    "resistor": 8,
+    "transformer": 9
+  },
+  "seed": 42,
+  "split_method": "StratifiedGroupKFold (k=7): fold 0 = test, fold 1 = validation, remaining folds = train",
+  "group_aware": true,
+  "split_counts": {
+    "train": 1414,
+    "val": 264,
+    "test": 224,
+    "total": 1902
+  },
+  "group_counts": {
+    "train": 1291,
+    "val": 259,
+    "test": 214
+  },
+  "per_class_counts": {
+    "train": {
+      "arduino_nano": 31,
+      "capacitor": 259,
+      "diode": 214,
+      "esp32_heltec_lora": 32,
+      "esp8266": 36,
+      "ic": 133,
+      "inductor": 132,
+      "raspberry_pi_3": 31,
+      "resistor": 300,
+      "transformer": 246
+    },
+    "val": {
+      "arduino_nano": 7,
+      "capacitor": 53,
+      "diode": 42,
+      "esp32_heltec_lora": 5,
+      "esp8266": 8,
+      "ic": 26,
+      "inductor": 27,
+      "raspberry_pi_3": 5,
+      "resistor": 42,
+      "transformer": 49
+    },
+    "test": {
+      "arduino_nano": 5,
+      "capacitor": 43,
+      "diode": 35,
+      "esp32_heltec_lora": 7,
+      "esp8266": 3,
+      "ic": 23,
+      "inductor": 22,
+      "raspberry_pi_3": 7,
+      "resistor": 40,
+      "transformer": 39
+    }
+  },
+  "leakage_check": "passed: no group id or file hash shared between splits",
+  "synthetic_demo_data": false
+}

@@ -1,0 +1,579 @@
+{
+  "model_name": "vit_b_16",
+  "test_accuracy": 0.8795,
+  "balanced_accuracy": 0.9002,
+  "macro_precision": 0.9019,
+  "macro_recall": 0.9002,
+  "macro_f1": 0.8975,
+  "weighted_f1": 0.8789,
+  "mean_latency_ms_per_image": 12.111,
+  "total_test_samples": 224,
+  "misclassified_count": 27,
+  "parameters": {
+    "total_parameters": 85806346,
+    "trainable_parameters": 85806346,
+    "model_size_mb": 327.33
+  },
+  "per_class_report": {
+    "arduino_nano": {
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1-score": 0.8888888888888888,
+      "support": 5.0
+    },
+    "capacitor": {
+      "precision": 0.8292682926829268,
+      "recall": 0.7906976744186046,
+      "f1-score": 0.8095238095238095,
+      "support": 43.0
+    },
+    "diode": {
+      "precision": 0.7777777777777778,
+      "recall": 0.8,
+      "f1-score": 0.7887323943661971,
+      "support": 35.0
+    },
+    "esp32_heltec_lora": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 7.0
+    },
+    "esp8266": {
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1-score": 0.8571428571428571,
+      "support": 3.0
+    },
+    "ic": {
+      "precision": 0.9523809523809523,
+      "recall": 0.8695652173913043,
+      "f1-score": 0.9090909090909091,
+      "support": 23.0
+    },
+    "inductor": {
+      "precision": 0.9,
+      "recall": 0.8181818181818182,
+      "f1-score": 0.8571428571428571,
+      "support": 22.0
+    },
+    "raspberry_pi_3": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 7.0
+    },
+    "resistor": {
+      "precision": 0.9069767441860465,
+      "recall": 0.975,
+      "f1-score": 0.9397590361445783,
+      "support": 40.0
+    },
+    "transformer": {
+      "precision": 0.9024390243902439,
+      "recall": 0.9487179487179487,
+      "f1-score": 0.925,
+      "support": 39.0
+    },
+    "accuracy": 0.8794642857142857,
+    "macro avg": {
+      "precision": 0.9018842791417947,
+      "recall": 0.9002162658709676,
+      "f1-score": 0.8975280752300098,
+      "support": 224.0
+    },
+    "weighted avg": {
+      "precision": 0.8808469304955864,
+      "recall": 0.8794642857142857,
+      "f1-score": 0.8788510082153154,
+      "support": 224.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      4,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      34,
+      7,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      3,
+      28,
+      0,
+      0,
+      1,
+      0,
+      0,
+      3,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      18,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      7,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      39,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      37
+    ]
+  ],
+  "confusion_matrix_normalized": [
+    [
+      0.8,
+      0.0,
+      0.0,
+      0.0,
+      0.2,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.7906976744186046,
+      0.16279069767441862,
+      0.0,
+      0.0,
+      0.0,
+      0.023255813953488372,
+      0.0,
+      0.023255813953488372,
+      0.0
+    ],
+    [
+      0.0,
+      0.08571428571428572,
+      0.8,
+      0.0,
+      0.0,
+      0.02857142857142857,
+      0.0,
+      0.0,
+      0.08571428571428572,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.043478260869565216,
+      0.0,
+      0.0,
+      0.8695652173913043,
+      0.0,
+      0.0,
+      0.0,
+      0.08695652173913043
+    ],
+    [
+      0.0,
+      0.09090909090909091,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.8181818181818182,
+      0.0,
+      0.0,
+      0.09090909090909091
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.025,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.975,
+      0.0
+    ],
+    [
+      0.0,
+      0.02564102564102564,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.02564102564102564,
+      0.0,
+      0.0,
+      0.9487179487179487
+    ]
+  ],
+  "top_misclassifications": [
+    {
+      "image_path": "/content/MLProject/data/raw/capacitor/faraji_new_file_493.jpg",
+      "true_class": "capacitor",
+      "pred_class": "diode",
+      "confidence": 0.9905946254730225,
+      "true_class_probability": 0.006129423622041941
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/diode/faraji_new_file_392.jpg",
+      "true_class": "diode",
+      "pred_class": "capacitor",
+      "confidence": 0.9868351817131042,
+      "true_class_probability": 0.009507675655186176
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/capacitor/faraji_new_file_17.jpg",
+      "true_class": "capacitor",
+      "pred_class": "diode",
+      "confidence": 0.9795219302177429,
+      "true_class_probability": 0.016614625230431557
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/inductor/faraji_new_file_229.jpg",
+      "true_class": "inductor",
+      "pred_class": "capacitor",
+      "confidence": 0.9773803353309631,
+      "true_class_probability": 0.0026746857911348343
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/diode/faraji_new_file_354.jpg",
+      "true_class": "diode",
+      "pred_class": "resistor",
+      "confidence": 0.9666426181793213,
+      "true_class_probability": 0.015708453953266144
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/capacitor/faraji_new_file_159.jpg",
+      "true_class": "capacitor",
+      "pred_class": "diode",
+      "confidence": 0.9565058350563049,
+      "true_class_probability": 0.03795498237013817
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/capacitor/faraji_new_file_7.jpg",
+      "true_class": "capacitor",
+      "pred_class": "diode",
+      "confidence": 0.951130747795105,
+      "true_class_probability": 0.003388845594599843
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/diode/faraji_new_file_148.jpg",
+      "true_class": "diode",
+      "pred_class": "capacitor",
+      "confidence": 0.9179238677024841,
+      "true_class_probability": 0.029924795031547546
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/diode/faraji_new_file_486.jpg",
+      "true_class": "diode",
+      "pred_class": "resistor",
+      "confidence": 0.9177312850952148,
+      "true_class_probability": 0.07407234609127045
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/arduino_nano/tannerIMG_20181228_103121__0.jpg",
+      "true_class": "arduino_nano",
+      "pred_class": "esp8266",
+      "confidence": 0.8926103115081787,
+      "true_class_probability": 0.0602017380297184
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/capacitor/faraji_new_file_6.jpg",
+      "true_class": "capacitor",
+      "pred_class": "diode",
+      "confidence": 0.8553470969200134,
+      "true_class_probability": 0.12527954578399658
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/inductor/faraji_new_file_177.jpg",
+      "true_class": "inductor",
+      "pred_class": "transformer",
+      "confidence": 0.8310105204582214,
+      "true_class_probability": 0.13188748061656952
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/ic/faraji_new_file_1045.jpg",
+      "true_class": "ic",
+      "pred_class": "diode",
+      "confidence": 0.8146474957466125,
+      "true_class_probability": 0.15325729548931122
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/resistor/faraji_new_file_117.jpg",
+      "true_class": "resistor",
+      "pred_class": "capacitor",
+      "confidence": 0.7590757012367249,
+      "true_class_probability": 0.22257180511951447
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/transformer/faraji_new_file_460.jpg",
+      "true_class": "transformer",
+      "pred_class": "capacitor",
+      "confidence": 0.72905033826828,
+      "true_class_probability": 0.0743798241019249
+    }
+  ],
+  "top_correct_predictions": [
+    {
+      "image_path": "/content/MLProject/data/raw/transformer/faraji_new_file_568.jpg",
+      "true_class": "transformer",
+      "pred_class": "transformer",
+      "confidence": 0.9985210299491882,
+      "true_class_probability": 0.9985210299491882
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/resistor/faraji_new_file_438.jpg",
+      "true_class": "resistor",
+      "pred_class": "resistor",
+      "confidence": 0.9983988404273987,
+      "true_class_probability": 0.9983988404273987
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/capacitor/faraji_new_file_477.jpg",
+      "true_class": "capacitor",
+      "pred_class": "capacitor",
+      "confidence": 0.9981983304023743,
+      "true_class_probability": 0.9981983304023743
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/esp8266/tannerIMG_20190104_163951__1.jpg",
+      "true_class": "esp8266",
+      "pred_class": "esp8266",
+      "confidence": 0.9976748824119568,
+      "true_class_probability": 0.9976748824119568
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/ic/faraji_new_file_647.jpg",
+      "true_class": "ic",
+      "pred_class": "ic",
+      "confidence": 0.9975009560585022,
+      "true_class_probability": 0.9975009560585022
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/esp32_heltec_lora/tannerIMG_20190104_163809__0.jpg",
+      "true_class": "esp32_heltec_lora",
+      "pred_class": "esp32_heltec_lora",
+      "confidence": 0.9969959259033203,
+      "true_class_probability": 0.9969959259033203
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/raspberry_pi_3/tannerIMG_20181228_102201__0.jpg",
+      "true_class": "raspberry_pi_3",
+      "pred_class": "raspberry_pi_3",
+      "confidence": 0.9968231916427612,
+      "true_class_probability": 0.9968231916427612
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/arduino_nano/tannerIMG_20190104_164125__0.jpg",
+      "true_class": "arduino_nano",
+      "pred_class": "arduino_nano",
+      "confidence": 0.9967355132102966,
+      "true_class_probability": 0.9967355132102966
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/inductor/faraji_new_file_233.jpg",
+      "true_class": "inductor",
+      "pred_class": "inductor",
+      "confidence": 0.9966200590133667,
+      "true_class_probability": 0.9966200590133667
+    },
+    {
+      "image_path": "/content/MLProject/data/raw/diode/faraji_new_file_462.jpg",
+      "true_class": "diode",
+      "pred_class": "diode",
+      "confidence": 0.9954956769943237,
+      "true_class_probability": 0.9954956769943237
+    }
+  ],
+  "top_confusions": [
+    {
+      "true_class": "capacitor",
+      "pred_class": "diode",
+      "count": 7
+    },
+    {
+      "true_class": "diode",
+      "pred_class": "capacitor",
+      "count": 3
+    },
+    {
+      "true_class": "diode",
+      "pred_class": "resistor",
+      "count": 3
+    },
+    {
+      "true_class": "ic",
+      "pred_class": "transformer",
+      "count": 2
+    },
+    {
+      "true_class": "inductor",
+      "pred_class": "capacitor",
+      "count": 2
+    },
+    {
+      "true_class": "inductor",
+      "pred_class": "transformer",
+      "count": 2
+    },
+    {
+      "true_class": "arduino_nano",
+      "pred_class": "esp8266",
+      "count": 1
+    },
+    {
+      "true_class": "capacitor",
+      "pred_class": "inductor",
+      "count": 1
+    },
+    {
+      "true_class": "capacitor",
+      "pred_class": "resistor",
+      "count": 1
+    },
+    {
+      "true_class": "diode",
+      "pred_class": "ic",
+      "count": 1
+    }
+  ],
+  "class_names": [
+    "arduino_nano",
+    "capacitor",
+    "diode",
+    "esp32_heltec_lora",
+    "esp8266",
+    "ic",
+    "inductor",
+    "raspberry_pi_3",
+    "resistor",
+    "transformer"
+  ]
+}

@@ -1,0 +1,8 @@
+\begin{table}[H]\centering\small
+\caption{Training configuration per model. All models: AdamW, input $224\times224$, linear warm-up then cosine decay, class-weighted cross-entropy, early stopping on validation loss, seed \Seed. Batch is given as batch$\times$accumulation steps (effective batch 32 for all). Epochs: maximum (actually trained).}\label{tab:hparams}
+\begin{tabular}{p{3.1cm}p{3.2cm}cccc r}\toprule
+Model & Pretrained weights & Batch & Epochs & LR & WD & Params (M) \\\midrule
+Custom CNN (scratch) & none (random init) & 32$\times$1 & 40 (38) & 1e-03 & 1e-04 & 0.42 \\
+ResNet-18 (transfer) & ImageNet-1k (torchvision DEFAULT) & 32$\times$1 & 25 (25) & 3e-04 & 1e-04 & 11.18 \\
+ViT-B/16 (transfer) & ImageNet-1k (torchvision DEFAULT) & 16$\times$2 & 25 (15) & 5e-05 & 1e-04 & 85.81 \\
+\bottomrule\end{tabular}\end{table}

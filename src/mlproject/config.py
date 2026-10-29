@@ -40,16 +40,16 @@ class ProjectConfig:
 
     # Target classes for Microcontroller & Electronic Component Classification
     target_classes: List[str] = field(default_factory=lambda: [
-        "arduino_uno",
         "arduino_nano",
-        "esp32",
         "esp8266",
-        "raspberry_pi_pico",
-        "stm32_bluepill",
-        "microcontroller_ic",
-        "resistor",
+        "esp32_heltec_lora",
+        "raspberry_pi_3",
+        "ic",
         "capacitor",
-        "diode_led",
+        "diode",
+        "resistor",
+        "inductor",
+        "transformer",
     ])
 
     # Training Hyperparameters
@@ -57,19 +57,34 @@ class ProjectConfig:
     # On Windows, PyTorch multiprocessing requires num_workers=0 to avoid spawn crashes
     num_workers: int = 0 if os.name == "nt" else 2
     epochs: int = 25
-    early_stopping_patience: int = 5
+    early_stopping_patience: int = 7
     learning_rate: float = 1e-3
     weight_decay: float = 1e-4
 
-    # Three model families required by ITRI626
-    # 1. Custom CNN baseline (from scratch)
-    # 2. ResNet family (pretrained transfer learning)
-    # 3. Vision Transformer / Modern ConvNet family (pretrained transfer learning)
+    # Three model families required by ITRI626 Section 6
+    # 1. Custom CNN baseline (from scratch)            - plain convolutional network
+    # 2. ResNet-18 (ImageNet transfer learning)        - residual CNN family
+    # 3. ViT-B/16  (ImageNet transfer learning)        - vision transformer family
     model_families: List[str] = field(default_factory=lambda: [
         "custom_cnn",
         "resnet18",
-        "mobilenet_v3",
+        "vit_b_16",
     ])
+
+    # Per-model training settings (single source of truth used by run-all, the
+    # notebook and the report). Effective batch size = batch_size * accum_steps = 32
+    # for every model so the comparison is fair. LRs differ because a randomly
+    # initialised CNN needs a larger step than fine-tuned pretrained backbones, and
+    # ViTs are known to need a smaller fine-tuning LR than CNNs.
+    model_settings: dict = field(default_factory=lambda: {
+        "custom_cnn":   {"epochs": 40, "lr": 1e-3, "batch_size": 32, "accum_steps": 1, "pretrained": False},
+        "resnet18":     {"epochs": 25, "lr": 3e-4, "batch_size": 32, "accum_steps": 1, "pretrained": True},
+        "vit_b_16":     {"epochs": 25, "lr": 5e-5, "batch_size": 16, "accum_steps": 2, "pretrained": True},
+        "mobilenet_v3": {"epochs": 25, "lr": 3e-4, "batch_size": 32, "accum_steps": 1, "pretrained": True},
+    })
+    warmup_epochs: int = 2
+    label_smoothing: float = 0.0
+    dropout: float = 0.3
 
     def get_device(self) -> torch.device:
         """Detect best available device (CUDA GPU or CPU)."""
