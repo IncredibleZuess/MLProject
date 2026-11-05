@@ -1,6 +1,6 @@
 # ITRI626: Microcontroller & Electronic Component Classification
 
-**Group:** Carlo Barnardo (43870449) · Itumeleng Ntela (43528309) · MEMBER 3 (STUDENT NO.)
+**Group:** Carlo Barnardo (43870449) · Itumeleng Ntela (43528309) · Karl Emmanuel Edoun (51622114)
 **Lecturer:** Prof. Absalom Ezugwu · **Facilitator:** Mr. Bernard Swanepoel
 
 Ten-class image classification (4 development boards + 6 component types), comparing three
@@ -99,3 +99,7 @@ src/mlproject/
   report_assets.py   results -> LaTeX tables
   main.py            CLI
 ```
+
+## Extra boards (not used)
+`data/extra_boards_not_used/` holds 37 board images cut from a collage of unknown source that appears to be synthetic. They are **not** part of the dataset, the splits or any result. See the note in that folder.
+To add real photographs: `python -m mlproject.data.ingest_images --src <folder> --label <class> --prefix <name> --source "<source, licence>" --group-size 5`, then rerun `python -m mlproject run-all` and update the report.

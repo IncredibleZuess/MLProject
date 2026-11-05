@@ -145,4 +145,8 @@ ResNet-18. It is as accurate as ViT-B/16 but 7.7× smaller and about 8× faster,
 Use the group contributions section of the report.
 
 **Did you use AI tools?**
-Yes: Itumeleng used Claude (an AI assistant) for coding help, the dataset review and drafting. Say what the module's AI policy allows, and be ready to explain every part yourself. That is the point of this sheet.
+Yes: Claude (an AI assistant) was used for coding help, the first visual review of the dataset, drafting, and (Karl) cutting up the extra-board collage and writing the ingestion script. Say what the module's AI policy allows, and be ready to explain every part yourself. That is the point of this sheet.
+
+
+**Why did you not use the extra 37 boards?**
+The collage has no source or licence, looks synthetic (garbled text), has one image per board, and only the Nano and NodeMCU match our classes. Using them would misrepresent the dataset. The results do not involve them.
