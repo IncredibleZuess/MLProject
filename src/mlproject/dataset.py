@@ -73,11 +73,8 @@ class MicrocontrollerDataset(Dataset):
 
     def __getitem__(self, idx: int) -> Tuple[torch.Tensor, int, str]:
         row = self.manifest.iloc[idx]
-        raw_path = Path(row["filepath"])
-        if not raw_path.is_absolute() and self.base_dir is not None:
-            img_path = self.base_dir / raw_path
-        else:
-            img_path = raw_path
+        raw_path = Path(row["relative_path"] if "relative_path" in row else row["filepath"])
+        img_path = raw_path if raw_path.is_absolute() or self.base_dir is None else self.base_dir / raw_path
 
         image = Image.open(img_path).convert("RGB")
         label_id = int(row["label_id"])
@@ -110,6 +107,7 @@ def create_dataloaders(
     batch_size: Optional[int] = None,
     num_workers: Optional[int] = None,
     config: ProjectConfig = default_config,
+    seed: Optional[int] = None,
 ) -> Tuple[DataLoader, DataLoader, DataLoader, Dict[int, str], Optional[torch.Tensor]]:
     """
     Create PyTorch DataLoaders for train, validation, and test splits.
@@ -135,15 +133,16 @@ def create_dataloaders(
     train_transform = get_train_transforms(config.image_size, config.mean, config.std)
     eval_transform = get_val_test_transforms(config.image_size, config.mean, config.std)
 
-    train_dataset = MicrocontrollerDataset(train_df, transform=train_transform, base_dir=config.project_root)
-    val_dataset = MicrocontrollerDataset(val_df, transform=eval_transform, base_dir=config.project_root)
-    test_dataset = MicrocontrollerDataset(test_df, transform=eval_transform, base_dir=config.project_root)
+    train_dataset = MicrocontrollerDataset(train_df, transform=train_transform, base_dir=config.data_dir)
+    val_dataset = MicrocontrollerDataset(val_df, transform=eval_transform, base_dir=config.data_dir)
+    test_dataset = MicrocontrollerDataset(test_df, transform=eval_transform, base_dir=config.data_dir)
 
     train_loader = DataLoader(
         train_dataset,
         batch_size=b_size,
         shuffle=True,
         num_workers=n_workers,
+        generator=torch.Generator().manual_seed(seed if seed is not None else config.seed),
         pin_memory=torch.cuda.is_available(),
     )
     val_loader = DataLoader(

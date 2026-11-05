@@ -52,7 +52,7 @@ def plot_learning_curves(
 
     plt.tight_layout()
     save_file = output_path or (config.figures_dir / f"learning_curves_{model_name}.png")
-    fig.savefig(save_file, dpi=300)
+    fig.savefig(save_file, dpi=150)
     plt.close(fig)
     return save_file
 
@@ -125,7 +125,7 @@ def plot_model_comparison(
     plt.tight_layout()
 
     save_file = output_path or (config.figures_dir / "model_comparison.png")
-    fig.savefig(save_file, dpi=300)
+    fig.savefig(save_file, dpi=150)
     plt.close(fig)
     return save_file
 
@@ -179,6 +179,143 @@ def plot_misclassified_samples(
     plt.tight_layout()
 
     save_file = output_path or (config.figures_dir / f"misclassified_{data.get('model_name')}.png")
-    fig.savefig(save_file, dpi=300)
+    fig.savefig(save_file, dpi=150)
     plt.close(fig)
     return save_file
+
+
+# ---------------------------------------------------------------- dataset figures
+def plot_class_distribution(config: ProjectConfig = default_config) -> Path:
+    """Stacked bar chart of images per class in train / val / test."""
+    with open(config.splits_dir / "classes.json") as f:
+        meta = json.load(f)
+    classes = meta["classes"]
+    pc = meta["per_class_counts"]
+    fig, ax = plt.subplots(figsize=(12, 5))
+    bottom = np.zeros(len(classes))
+    for split, color in [("train", "#1f77b4"), ("val", "#ff7f0e"), ("test", "#2ca02c")]:
+        vals = np.array([pc[split].get(c, 0) for c in classes])
+        ax.bar(classes, vals, bottom=bottom, label=split, color=color)
+        bottom += vals
+    for i, total in enumerate(bottom):
+        ax.text(i, total + max(bottom) * 0.01, f"{int(total)}", ha="center", fontsize=9)
+    ax.set_ylabel("Images")
+    ax.set_title("Images per class and split (after cleaning)", fontweight="bold")
+    ax.legend()
+    ax.grid(True, axis="y", alpha=0.3)
+    plt.xticks(rotation=30, ha="right")
+    plt.tight_layout()
+    out = config.figures_dir / "class_distribution.png"
+    fig.savefig(out, dpi=200)
+    plt.close(fig)
+    return out
+
+
+def plot_class_examples(per_class: int = 3, config: ProjectConfig = default_config) -> Path:
+    """Grid with `per_class` random training images (rows) for every class (columns)."""
+    df = pd.read_csv(config.splits_dir / "train.csv")
+    classes = sorted(df["label"].unique())
+    fig, axes = plt.subplots(per_class, len(classes), figsize=(1.6 * len(classes), 1.75 * per_class))
+    axes = np.array(axes).reshape(per_class, len(classes))
+    for col, c in enumerate(classes):
+        sub = df[df["label"] == c].sample(n=min(per_class, int((df["label"] == c).sum())), random_state=config.seed)
+        for r in range(per_class):
+            ax = axes[r, col]
+            ax.axis("off")
+            if r < len(sub):
+                ax.imshow(Image.open(config.data_dir / sub.iloc[r]["relative_path"]).convert("RGB"))
+            if r == 0:
+                ax.set_title(c.replace("_", " "), fontsize=8, fontweight="bold")
+    plt.tight_layout(pad=0.3)
+    out = config.figures_dir / "class_examples.png"
+    fig.savefig(out, dpi=200)
+    plt.close(fig)
+    return out
+
+
+# ------------------------------------------------------------- results figures
+def plot_correct_samples(results_file: Path, num_samples: int = 8, config: ProjectConfig = default_config) -> Optional[Path]:
+    """Grid of correctly classified test images (one per class where possible)."""
+    with open(results_file) as f:
+        data = json.load(f)
+    items = data.get("top_correct_predictions", [])[:num_samples]
+    if not items:
+        return None
+    cols = 4
+    rows = int(np.ceil(len(items) / cols))
+    fig, axes = plt.subplots(rows, cols, figsize=(16, 4 * rows))
+    axes = np.array(axes).reshape(-1)
+    for i, ax in enumerate(axes):
+        ax.axis("off")
+        if i < len(items):
+            it = items[i]
+            p = Path(it["image_path"])
+            if p.exists():
+                ax.imshow(Image.open(p).convert("RGB"))
+            ax.set_title(f"True/Pred: {it['true_class']}\nConf: {it['confidence']:.1%}", color="green", fontsize=10, fontweight="bold")
+    plt.suptitle(f"Correct test predictions - {data['model_name']}", fontsize=14, fontweight="bold")
+    plt.tight_layout()
+    out = config.figures_dir / f"correct_{data['model_name']}.png"
+    fig.savefig(out, dpi=200)
+    plt.close(fig)
+    return out
+
+
+def plot_validation_comparison(model_names: List[str], config: ProjectConfig = default_config) -> Optional[Path]:
+    """Validation loss and validation macro-F1 of all models on shared axes."""
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+    found = False
+    for m in model_names:
+        hf = config.models_dir / m / "history.json"
+        if not hf.exists():
+            continue
+        found = True
+        h = json.load(open(hf))["history"]
+        ep = range(1, len(h["val_loss"]) + 1)
+        axes[0].plot(ep, h["val_loss"], label=m, linewidth=2)
+        axes[1].plot(ep, h["val_f1"], label=m, linewidth=2)
+    if not found:
+        plt.close(fig)
+        return None
+    axes[0].set_title("Validation loss", fontweight="bold")
+    axes[1].set_title("Validation macro-F1", fontweight="bold")
+    axes[1].set_ylim(0, 1.05)
+    for ax in axes:
+        ax.set_xlabel("Epoch")
+        ax.grid(True, alpha=0.3)
+        ax.legend()
+    plt.tight_layout()
+    out = config.figures_dir / "validation_comparison.png"
+    fig.savefig(out, dpi=200)
+    plt.close(fig)
+    return out
+
+
+def plot_per_class_f1(model_names: List[str], config: ProjectConfig = default_config) -> Optional[Path]:
+    """Grouped bars: per-class test F1 for every model."""
+    data = {}
+    for m in model_names:
+        rf = config.results_dir / f"{m}_results.json"
+        if rf.exists():
+            r = json.load(open(rf))
+            data[m] = {c: r["per_class_report"][c]["f1-score"] for c in r["class_names"]}
+    if not data:
+        return None
+    classes = list(next(iter(data.values())).keys())
+    x = np.arange(len(classes))
+    w = 0.8 / len(data)
+    fig, ax = plt.subplots(figsize=(13, 5))
+    for i, (m, d) in enumerate(data.items()):
+        ax.bar(x + i * w - 0.4 + w / 2, [d[c] for c in classes], width=w, label=m)
+    ax.set_xticks(x)
+    ax.set_xticklabels(classes, rotation=30, ha="right")
+    ax.set_ylim(0, 1.05)
+    ax.set_ylabel("Test F1")
+    ax.set_title("Per-class test F1 by model", fontweight="bold")
+    ax.legend()
+    ax.grid(True, axis="y", alpha=0.3)
+    plt.tight_layout()
+    out = config.figures_dir / "per_class_f1.png"
+    fig.savefig(out, dpi=200)
+    plt.close(fig)
+    return out

@@ -1,0 +1,8 @@
+\begin{table}[H]\centering\small
+\caption{Most frequent test confusions (true $\rightarrow$ predicted, count).}\label{tab:confusions}
+\begin{tabular}{lp{11cm}}\toprule
+Model & Top confusions \\\midrule
+Custom CNN (scratch) & capacitor$\rightarrow$resistor (8), transformer$\rightarrow$ic (8), diode$\rightarrow$resistor (7), transformer$\rightarrow$inductor (7), capacitor$\rightarrow$transformer (6) \\
+ResNet-18 (transfer) & ic$\rightarrow$diode (3), capacitor$\rightarrow$diode (2), capacitor$\rightarrow$resistor (2), diode$\rightarrow$resistor (2), inductor$\rightarrow$capacitor (2) \\
+ViT-B/16 (transfer) & capacitor$\rightarrow$diode (7), diode$\rightarrow$capacitor (3), diode$\rightarrow$resistor (3), ic$\rightarrow$transformer (2), inductor$\rightarrow$capacitor (2) \\
+\bottomrule\end{tabular}\end{table}

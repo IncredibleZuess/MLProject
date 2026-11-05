@@ -1,122 +1,125 @@
 """
-Main CLI entrypoint for the Microcontroller & Component Classification project.
-Allows running data preparation, training all 3 models, evaluation, and visualization.
+Command-line entry point:  python -m mlproject <command>
+
+  prepare        clean data/raw, build leakage-free splits (+ --demo for synthetic test data)
+  train          train one model            (--model custom_cnn|resnet18|vit_b_16|mobilenet_v3)
+  evaluate       evaluate one model on the held-out test split
+  compare        comparison figures across all trained models
+  report-assets  regenerate LaTeX tables + figures used by report/report.tex
+  run-all        prepare -> train 3 models -> evaluate -> figures -> report assets
 """
 
 import argparse
-import sys
-from pathlib import Path
+
 from mlproject.config import default_config
-from mlproject.data.download_and_prep import prepare_dataset, generate_demo_dataset
-from mlproject.train import train_model
+from mlproject.data.download_and_prep import generate_demo_dataset, prepare_dataset
 from mlproject.evaluate import evaluate_model
-from mlproject.visualize import plot_learning_curves, plot_model_comparison, plot_misclassified_samples
+from mlproject.report_assets import generate as generate_report_assets
+from mlproject.train import train_model
+from mlproject.visualize import (
+    plot_class_distribution,
+    plot_class_examples,
+    plot_correct_samples,
+    plot_learning_curves,
+    plot_misclassified_samples,
+    plot_model_comparison,
+    plot_per_class_f1,
+    plot_validation_comparison,
+)
+
+cfg = default_config
+cfg.ensure_directories()
 
 
-def run_pipeline():
-    """Run full pipeline: prepare data, train 3 models, evaluate all, generate comparison figures."""
-    print("=" * 70)
-    print("RUNNING COMPLETE ITRI626 BENCHMARK PIPELINE")
-    print("=" * 70)
-
-    # 1. Prepare data
-    print("\n--- STEP 1: PREPARING DATASET & SPLITS ---")
-    prepare_dataset(config=default_config, generate_if_empty=True)
-
-    # 2. Train 3 models from 3 distinct families
-    models_to_train = [
-        ("custom_cnn", 15, 1e-3),
-        ("resnet18", 12, 3e-4),
-        ("mobilenet_v3", 12, 3e-4),
-    ]
-
-    for model_name, epochs, lr in models_to_train:
-        print(f"\n--- STEP 2: TRAINING MODEL: {model_name} ---")
-        train_model(
-            model_name=model_name,
-            epochs=epochs,
-            batch_size=32,
-            lr=lr,
-            config=default_config,
-        )
-
-        # Plot learning curves
-        hist_file = default_config.models_dir / model_name / "history.json"
-        if hist_file.exists():
-            fig_path = plot_learning_curves(hist_file, config=default_config)
-            print(f"Generated learning curves: {fig_path}")
-
-    # 3. Evaluate on held-out test split
-    print("\n--- STEP 3: EVALUATION ON HELD-OUT TEST SPLIT ---")
-    for model_name, _, _ in models_to_train:
-        evaluate_model(model_name=model_name, config=default_config)
-        res_file = default_config.results_dir / f"{model_name}_results.json"
-        if res_file.exists():
-            plot_misclassified_samples(res_file, config=default_config)
-
-    # 4. Generate comparison plots
-    print("\n--- STEP 4: GENERATING MULTI-MODEL COMPARISON PLOTS ---")
-    cmp_fig = plot_model_comparison(config=default_config)
-    print(f"Comparative report figure generated: {cmp_fig}")
-    print("\nBenchmark pipeline successfully completed!")
+def dataset_figures() -> None:
+    print("Dataset figures:", plot_class_distribution(config=cfg), plot_class_examples(config=cfg))
 
 
-def main():
-    parser = argparse.ArgumentParser(description="Microcontroller Image Classification CLI")
-    subparsers = parser.add_subparsers(dest="command", help="Sub-commands")
+def post_train(model_name: str) -> None:
+    hist = cfg.models_dir / model_name / "history.json"
+    if hist.exists():
+        plot_learning_curves(hist, config=cfg)
 
-    # Prepare command
-    sub_prep = subparsers.add_parser("prepare", help="Prepare dataset and splits")
-    sub_prep.add_argument("--demo", action="store_true", help="Generate demo dataset")
-    sub_prep.add_argument("--samples", type=int, default=35, help="Samples per class for demo")
 
-    # Train command
-    sub_train = subparsers.add_parser("train", help="Train a model")
-    sub_train.add_argument("--model", type=str, default="custom_cnn", choices=["custom_cnn", "resnet18", "resnet50", "mobilenet_v3", "vit_b_16"])
-    sub_train.add_argument("--epochs", type=int, default=20)
-    sub_train.add_argument("--batch-size", type=int, default=32)
-    sub_train.add_argument("--lr", type=float, default=1e-3)
-    sub_train.add_argument("--seed", type=int, default=42)
+def post_eval(model_name: str) -> None:
+    res = cfg.results_dir / f"{model_name}_results.json"
+    if res.exists():
+        plot_misclassified_samples(res, config=cfg)
+        plot_correct_samples(res, config=cfg)
 
-    # Evaluate command
-    sub_eval = subparsers.add_parser("evaluate", help="Evaluate a model on test split")
-    sub_eval.add_argument("--model", type=str, default="custom_cnn")
 
-    # Compare command
-    subparsers.add_parser("compare", help="Generate comparison charts across trained models")
+def compare(models) -> None:
+    plot_model_comparison(config=cfg)
+    plot_validation_comparison(models, config=cfg)
+    plot_per_class_f1(models, config=cfg)
 
-    # Run-all pipeline
-    subparsers.add_parser("run-all", help="Execute complete end-to-end benchmark")
 
-    args = parser.parse_args()
+def run_pipeline(models=None, demo: bool = False, quick_epochs: int = None) -> None:
+    models = models or cfg.model_families
+    print("=" * 70 + "\nITRI626 FULL PIPELINE: " + ", ".join(models) + "\n" + "=" * 70)
+    prepare_dataset(config=cfg, generate_if_empty=demo)
+    dataset_figures()
+    for m in models:
+        train_model(m, epochs=quick_epochs, config=cfg)
+        post_train(m)
+    for m in models:
+        evaluate_model(m, config=cfg)
+        post_eval(m)
+    compare(models)
+    generate_report_assets(models, config=cfg)
+    print("\nPipeline complete. Re-compile report/report.tex to update the report.")
 
-    if args.command == "prepare":
-        if args.demo:
-            generate_demo_dataset(default_config.raw_data_dir, samples_per_class=args.samples)
-        prepare_dataset(config=default_config)
-    elif args.command == "train":
-        train_model(
-            model_name=args.model,
-            epochs=args.epochs,
-            batch_size=args.batch_size,
-            lr=args.lr,
-            seed=args.seed,
-            config=default_config,
-        )
-        hist = default_config.models_dir / args.model / "history.json"
-        if hist.exists():
-            plot_learning_curves(hist, config=default_config)
-    elif args.command == "evaluate":
-        evaluate_model(model_name=args.model, config=default_config)
-        res = default_config.results_dir / f"{args.model}_results.json"
-        if res.exists():
-            plot_misclassified_samples(res, config=default_config)
-    elif args.command == "compare":
-        plot_model_comparison(config=default_config)
-    elif args.command == "run-all":
-        run_pipeline()
+
+def main() -> None:
+    p = argparse.ArgumentParser(description="ITRI626 microcontroller & component classification")
+    sub = p.add_subparsers(dest="command")
+    models = list(cfg.model_settings)
+
+    sp = sub.add_parser("prepare", help="Clean data and create splits")
+    sp.add_argument("--demo", action="store_true", help="Generate SYNTHETIC demo images first (pipeline test only)")
+    sp.add_argument("--samples", type=int, default=35)
+    sp.add_argument("--no-group-split", action="store_true", help="Plain stratified split (not recommended)")
+
+    st = sub.add_parser("train", help="Train a model (defaults from config.model_settings)")
+    st.add_argument("--model", default="custom_cnn", choices=models)
+    st.add_argument("--epochs", type=int)
+    st.add_argument("--batch-size", type=int)
+    st.add_argument("--accum-steps", type=int)
+    st.add_argument("--lr", type=float)
+    st.add_argument("--seed", type=int)
+
+    se = sub.add_parser("evaluate", help="Evaluate a model on the test split")
+    se.add_argument("--model", default="custom_cnn", choices=models)
+
+    sub.add_parser("compare", help="Comparison figures across trained models")
+    sub.add_parser("report-assets", help="Regenerate report tables and figures")
+
+    sr = sub.add_parser("run-all", help="Run the complete pipeline")
+    sr.add_argument("--demo", action="store_true", help="Use synthetic data if data/raw is empty")
+    sr.add_argument("--quick", type=int, default=None, metavar="EPOCHS", help="Override epochs (smoke test)")
+    sr.add_argument("--models", nargs="+", choices=models, default=None)
+
+    a = p.parse_args()
+    if a.command == "prepare":
+        if a.demo:
+            generate_demo_dataset(cfg.raw_data_dir, samples_per_class=a.samples)
+        prepare_dataset(config=cfg, group_aware=not a.no_group_split)
+        dataset_figures()
+    elif a.command == "train":
+        train_model(a.model, epochs=a.epochs, batch_size=a.batch_size, lr=a.lr, accum_steps=a.accum_steps,
+                    seed=a.seed, config=cfg)
+        post_train(a.model)
+    elif a.command == "evaluate":
+        evaluate_model(a.model, config=cfg)
+        post_eval(a.model)
+    elif a.command == "compare":
+        compare(cfg.model_families)
+    elif a.command == "report-assets":
+        generate_report_assets(config=cfg)
+    elif a.command == "run-all":
+        run_pipeline(models=a.models, demo=a.demo, quick_epochs=a.quick)
     else:
-        parser.print_help()
+        p.print_help()
 
 
 if __name__ == "__main__":

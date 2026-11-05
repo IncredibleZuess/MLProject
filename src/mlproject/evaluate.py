@@ -9,7 +9,7 @@ import argparse
 import json
 import time
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -72,6 +72,11 @@ def evaluate_model(
     # Measure inference latency
     inference_times = []
 
+    # warm-up pass so one-off initialisation is not counted as latency
+    for images, _, _ in test_loader:
+        model(images[:1].to(device))
+        break
+
     for images, targets, paths in test_loader:
         images = images.to(device)
         start = time.perf_counter()
@@ -132,7 +137,7 @@ def evaluate_model(
     plt.yticks(rotation=0)
     plt.tight_layout()
     cm_fig_path = config.figures_dir / f"confusion_matrix_{model_name}.png"
-    fig.savefig(cm_fig_path, dpi=300)
+    fig.savefig(cm_fig_path, dpi=150)
     plt.close(fig)
 
     # Error analysis: collect misclassified samples
@@ -153,6 +158,25 @@ def evaluate_model(
 
     # Sort misclassified by model confidence (most confident errors first)
     misclassified = sorted(misclassified, key=lambda x: x["confidence"], reverse=True)
+    # correct predictions: one per class (most confident) so every class is shown
+    correct_by_class = {}
+    for c in sorted(correct_samples, key=lambda x: x["confidence"], reverse=True):
+        correct_by_class.setdefault(c["true_class"], c)
+    correct_examples = list(correct_by_class.values())
+
+    # full per-image predictions for the notebook / appendix
+    pd.DataFrame([
+        {"image_path": p_, "true_class": class_names[t], "pred_class": class_names[pr],
+         "confidence": float(pb[pr]), "correct": bool(t == pr)}
+        for t, pr, p_, pb in zip(targets_arr, preds_arr, all_paths, probs_arr)
+    ]).to_csv(config.results_dir / f"{model_name}_test_predictions.csv", index=False)
+
+    # most frequent confusions (true -> predicted, count)
+    confusions = [
+        {"true_class": class_names[i], "pred_class": class_names[j], "count": int(cm[i, j])}
+        for i in range(num_classes) for j in range(num_classes) if i != j and cm[i, j] > 0
+    ]
+    confusions = sorted(confusions, key=lambda x: x["count"], reverse=True)[:10]
 
     avg_latency_ms = float(np.mean(inference_times) * 1000)
 
@@ -172,7 +196,9 @@ def evaluate_model(
         "confusion_matrix": cm.tolist(),
         "confusion_matrix_normalized": cm_norm.tolist(),
         "top_misclassifications": misclassified[:15],
-        "top_correct_predictions": correct_samples[:10],
+        "top_correct_predictions": correct_examples,
+        "top_confusions": confusions,
+        "class_names": class_names,
     }
 
     results_file = config.results_dir / f"{model_name}_results.json"
@@ -208,7 +234,7 @@ def evaluate_model(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate Trained Model on Test Split")
-    parser.add_argument("--model", type=str, default="custom_cnn", choices=["custom_cnn", "resnet18", "resnet50", "mobilenet_v3", "vit_b_16"])
+    parser.add_argument("--model", type=str, default="custom_cnn", choices=list(default_config.model_settings))
     parser.add_argument("--checkpoint", type=str, default=None)
     args = parser.parse_args()
 

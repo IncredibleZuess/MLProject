@@ -1,0 +1,8 @@
+\begin{table}[H]\centering\small
+\caption{Held-out test results (identical test split for all models). Latency is mean forward-pass time per image on the hardware in Section~\ref{sec:setup}; train time is wall-clock minutes.}\label{tab:results}
+\begin{tabular}{lrrrrrrrr}\toprule
+Model & Acc (\%) & Bal.\ acc (\%) & Macro P & Macro R & Macro F1 & W.\ F1 & ms/img & Train (min) \\\midrule
+Custom CNN (scratch) & 50.9 & 64.6 & 0.515 & 0.646 & 0.543 & 0.500 & 1.07 & 6.8 \\
+ResNet-18 (transfer) & 90.2 & 91.0 & 0.909 & 0.910 & 0.901 & 0.902 & 1.44 & 4.5 \\
+ViT-B/16 (transfer) & 87.9 & 90.0 & 0.902 & 0.900 & 0.897 & 0.879 & 12.11 & 5.3 \\
+\bottomrule\end{tabular}\end{table}

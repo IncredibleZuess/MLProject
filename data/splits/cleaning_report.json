@@ -1,0 +1,2727 @@
+{
+  "initial_samples": 2440,
+  "removed_corrupt_or_small": 0,
+  "removed_exact_duplicates": 10,
+  "removed_cross_class_near_duplicates": 19,
+  "same_class_near_duplicate_pairs_grouped": 1954,
+  "cleaned_samples": 1902,
+  "num_groups": 1764,
+  "near_dup_threshold_bits": 10,
+  "per_class_before": {
+    "arduino_nano": 43,
+    "capacitor": 400,
+    "diode": 400,
+    "esp32_heltec_lora": 44,
+    "esp8266": 47,
+    "ic": 400,
+    "inductor": 265,
+    "raspberry_pi_3": 43,
+    "resistor": 398,
+    "transformer": 400
+  },
+  "per_class_after": {
+    "arduino_nano": 43,
+    "capacitor": 355,
+    "diode": 291,
+    "esp32_heltec_lora": 44,
+    "esp8266": 47,
+    "ic": 182,
+    "inductor": 181,
+    "raspberry_pi_3": 43,
+    "resistor": 382,
+    "transformer": 334
+  },
+  "removed_files": [
+    {
+      "file": "raw/capacitor/faraji_new_file_104.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_11.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_114.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_130.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_135.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_158.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_164.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_171.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_188.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_189.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_214.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_233.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_241.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_246.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_262.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_274.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_275.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_282.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_293.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_298.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_312.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_343.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_345.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_347.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_360.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_364.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_370.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_392.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_420.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_422.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_431.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_448.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_450.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_457.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_474.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_488.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_521.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_522.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_526.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_85.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_91.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_93.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_95.jpg",
+      "label": "capacitor",
+      "reason": "manual review: circuit board or scene; no capacitor is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_10.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_102.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_105.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_106.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_11.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_111.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_113.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_115.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_118.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_12.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_122.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_132.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_146.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_149.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_157.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_172.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_179.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_180.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_181.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_186.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_190.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_201.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_202.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_203.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_209.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_211.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_223.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_225.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_227.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_231.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_235.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_241.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_245.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_247.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_25.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_250.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_253.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_258.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_259.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_265.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_266.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_27.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_272.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_276.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_283.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_287.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_293.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_295.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_301.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_308.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_309.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_311.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_318.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_320.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_335.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_336.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_338.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_344.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_346.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_35.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_351.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_356.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_362.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_364.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_368.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_369.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_385.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_390.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_397.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_4.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_403.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_404.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_414.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_425.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_429.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_43.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_440.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_441.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_445.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_452.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_454.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_470.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_475.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_477.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_480.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_489.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_503.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_51.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_513.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_517.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_52.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_58.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_59.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_66.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_67.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_73.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_75.jpg",
+      "label": "diode",
+      "reason": "manual review: shows an IC (multi-pin chip), not a diode"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_77.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_83.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_84.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_88.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_96.jpg",
+      "label": "diode",
+      "reason": "manual review: circuit board, breadboard or scene; no diode is the clear subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1016.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1020.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1023.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1036.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1071.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1072.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1079.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1082.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1083.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1099.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1100.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1126.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1129.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_113.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1134.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1136.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1143.jpg",
+      "label": "ic",
+      "reason": "manual review: person in image, no chip visible"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1148.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1155.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1156.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1166.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1167.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_117.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1181.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1188.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1208.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_121.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1216.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1230.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_125.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1264.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1265.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1267.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1272.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1273.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1279.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1283.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1295.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1304.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1322.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1329.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_133.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1346.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1353.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1356.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1363.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1373.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1381.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1388.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1412.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1414.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1423.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1425.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1439.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1441.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1442.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1447.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1448.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1450.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1461.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1463.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1464.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1489.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1498.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_1501.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_16.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_175.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_176.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_182.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_183.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_186.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_188.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_196.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_205.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_21.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_211.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_225.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_227.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_229.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_239.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_24.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_241.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_244.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_253.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_258.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_265.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_27.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_272.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_273.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_281.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_294.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_3.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_306.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_311.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_346.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_347.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_351.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_352.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_357.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_379.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_384.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_390.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_398.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_399.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_400.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_402.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_404.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_407.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_41.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_410.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_429.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_436.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_444.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_445.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_448.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_455.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_458.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_461.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_463.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_471.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_477.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_482.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_485.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_488.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_498.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_501.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_502.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_509.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_510.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_511.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_516.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_517.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_523.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_526.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_528.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_537.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_538.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_545.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_546.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_556.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_557.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_564.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_568.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_581.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_582.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_594.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_600.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_601.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_609.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_612.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_624.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_629.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_638.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_646.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_658.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_66.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_660.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_663.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_666.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_67.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_670.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_674.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_683.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_686.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_694.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_695.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_697.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_706.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_708.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_724.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_725.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_728.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_730.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_732.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_738.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_742.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_744.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_745.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_746.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_748.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_759.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_763.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_77.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_774.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_775.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_781.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_786.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_790.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_791.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_8.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_805.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_806.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_821.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_824.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_834.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_836.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_841.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_844.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_862.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_87.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_881.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_886.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_890.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_897.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_9.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_907.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_918.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_933.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_934.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_939.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_944.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_95.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_96.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_960.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_961.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_963.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_981.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/ic/faraji_new_file_99.jpg",
+      "label": "ic",
+      "reason": "manual review: whole circuit board, computer part or scene; no single chip is the subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_1.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_103.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_104.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_105.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_106.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_111.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_113.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_114.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_12.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_122.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_123.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_125.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_128.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_129.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_130.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_133.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_134.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_135.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_136.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_141.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_144.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_146.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_150.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_151.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_156.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_158.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_159.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_162.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_168.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_174.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_176.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_178.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_18.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_184.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_185.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_186.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_190.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_191.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_195.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_197.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_198.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_199.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_2.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_20.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_200.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_208.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_213.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_214.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_216.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_219.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_22.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_230.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_231.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_232.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_237.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_239.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_242.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_246.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_25.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_253.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_257.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_26.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_261.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_262.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_265.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_29.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_31.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_4.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_45.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_53.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_55.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_56.jpg",
+      "label": "inductor",
+      "reason": "manual review: mains transformer, belongs to the transformer class"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_57.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_59.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_68.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_69.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_70.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_76.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_79.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_83.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_91.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_96.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_97.jpg",
+      "label": "inductor",
+      "reason": "manual review: historic induction coil (a transformer) on a wooden base"
+    },
+    {
+      "file": "raw/inductor/faraji_new_file_99.jpg",
+      "label": "inductor",
+      "reason": "manual review: circuit board, machine or scene; no inductor is the clear subject"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_107.jpg",
+      "label": "resistor",
+      "reason": "manual review: not a resistor (film capacitor / jumper wire)"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_17.jpg",
+      "label": "resistor",
+      "reason": "manual review: not a resistor (film capacitor / jumper wire)"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_33.jpg",
+      "label": "resistor",
+      "reason": "manual review: retail packaging box"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_383.jpg",
+      "label": "resistor",
+      "reason": "manual review: retail packaging box"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_393.jpg",
+      "label": "resistor",
+      "reason": "manual review: not a resistor (film capacitor / jumper wire)"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_46.jpg",
+      "label": "resistor",
+      "reason": "manual review: retail packaging box"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_111.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_115.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_136.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_138.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_139.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_150.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_156.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_16.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_182.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_187.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_192.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_235.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_238.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_245.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_249.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_253.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_259.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_26.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_277.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_281.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_283.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_290.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_312.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_319.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_32.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_346.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_364.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_398.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_402.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_407.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_420.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_428.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_43.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_437.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_463.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_469.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_481.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_501.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_504.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_506.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_524.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_562.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_564.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_57.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_626.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_634.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_64.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_644.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_646.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_647.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_679.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_682.jpg",
+      "label": "transformer",
+      "reason": "manual review: scene, ballast or unrelated object"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_694.jpg",
+      "label": "transformer",
+      "reason": "manual review: power-grid substation, utility pole or control room"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_72.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_733.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_89.jpg",
+      "label": "transformer",
+      "reason": "manual review: UPS, server-rack or other equipment, not a transformer"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_432.jpg",
+      "label": "transformer",
+      "reason": "exact duplicate of raw/transformer/faraji_new_file_207.jpg"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_52.jpg",
+      "label": "transformer",
+      "reason": "exact duplicate of raw/transformer/faraji_new_file_388.jpg"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_207.jpg",
+      "label": "resistor",
+      "reason": "exact duplicate of raw/resistor/faraji_new_file_152.jpg"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_457.jpg",
+      "label": "transformer",
+      "reason": "exact duplicate of raw/transformer/faraji_new_file_120.jpg"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_79.jpg",
+      "label": "transformer",
+      "reason": "exact duplicate of raw/transformer/faraji_new_file_201.jpg"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_747.jpg",
+      "label": "transformer",
+      "reason": "exact duplicate of raw/transformer/faraji_new_file_367.jpg"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_197.jpg",
+      "label": "resistor",
+      "reason": "exact duplicate of raw/resistor/faraji_new_file_118.jpg"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_554.jpg",
+      "label": "transformer",
+      "reason": "exact duplicate of raw/transformer/faraji_new_file_317.jpg"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_422.jpg",
+      "label": "transformer",
+      "reason": "exact duplicate of raw/transformer/faraji_new_file_330.jpg"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_521.jpg",
+      "label": "transformer",
+      "reason": "exact duplicate of raw/transformer/faraji_new_file_169.jpg"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_297.jpg",
+      "label": "capacitor",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/capacitor/faraji_new_file_63.jpg",
+      "label": "capacitor",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_296.jpg",
+      "label": "diode",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_365.jpg",
+      "label": "diode",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_373.jpg",
+      "label": "diode",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_409.jpg",
+      "label": "diode",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_512.jpg",
+      "label": "diode",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_516.jpg",
+      "label": "diode",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/diode/faraji_new_file_56.jpg",
+      "label": "diode",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/resistor/faraji_Resistor (14).jpg",
+      "label": "resistor",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_135.jpg",
+      "label": "resistor",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_240.jpg",
+      "label": "resistor",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_288.jpg",
+      "label": "resistor",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_35.jpg",
+      "label": "resistor",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_387.jpg",
+      "label": "resistor",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_63.jpg",
+      "label": "resistor",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/resistor/faraji_new_file_70.jpg",
+      "label": "resistor",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_315.jpg",
+      "label": "transformer",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    },
+    {
+      "file": "raw/transformer/faraji_new_file_482.jpg",
+      "label": "transformer",
+      "reason": "near-duplicate of an image in a different class (uncertain label)"
+    }
+  ],
+  "removed_manual_review": 509
+}

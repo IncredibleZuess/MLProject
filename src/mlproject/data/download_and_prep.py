@@ -5,6 +5,7 @@ demo dataset to test and reproduce the full training and evaluation workflow imm
 """
 
 import argparse
+import json
 import random
 from pathlib import Path
 from typing import List, Optional
@@ -13,6 +14,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 from mlproject.config import ProjectConfig, default_config
 from mlproject.split import clean_dataset, create_splits, print_split_summary, scan_dataset_directory
+
+
+DEMO_MARKER = ".SYNTHETIC_DEMO_DATA"
 
 
 def generate_synthetic_microcontroller_image(
@@ -96,6 +100,7 @@ def generate_demo_dataset(
             img_path = class_folder / f"{class_name}_{i:03d}.jpg"
             generate_synthetic_microcontroller_image(class_name, img_path)
 
+    (target_dir / DEMO_MARKER).write_text("Images in this folder are synthetic and must not be reported as results.\n")
     print(f"Successfully generated {len(target_classes) * samples_per_class} sample images in {target_dir}")
 
 
@@ -103,14 +108,15 @@ def prepare_dataset(
     raw_dir: Optional[Path] = None,
     splits_dir: Optional[Path] = None,
     config: ProjectConfig = default_config,
-    generate_if_empty: bool = True,
+    generate_if_empty: bool = False,
+    group_aware: bool = True,
 ) -> None:
     """
     Full data preparation pipeline:
-    1. Scan raw image directory
-    2. Clean corrupt files and duplicates
-    3. Generate reproducible train/val/test splits (70/15/15)
-    4. Save manifest files and summary statistics
+    1. Scan data/raw/<class>/...
+    2. Clean: corrupt/tiny files, exact duplicates, cross-class near-duplicates
+    3. Group-aware stratified 70/15/15 split (seed from config)
+    4. Write split CSVs, classes.json and cleaning_report.json to data/splits/
     """
     r_dir = raw_dir or config.raw_data_dir
     s_dir = splits_dir or config.splits_dir
@@ -118,20 +124,49 @@ def prepare_dataset(
     s_dir.mkdir(parents=True, exist_ok=True)
 
     df_raw = scan_dataset_directory(r_dir)
-
     if len(df_raw) == 0:
         if generate_if_empty:
-            print(f"Raw directory '{r_dir}' is empty. Generating initial demo dataset for pipeline verification...")
+            print(f"Raw directory '{r_dir}' is empty. Generating SYNTHETIC demo data (pipeline test only)...")
             generate_demo_dataset(r_dir, classes=config.target_classes, samples_per_class=35)
             df_raw = scan_dataset_directory(r_dir)
         else:
-            raise FileNotFoundError(f"No images found in raw data directory: {r_dir}")
+            raise FileNotFoundError(
+                f"No images found in {r_dir}. Put real images in data/raw/<class_name>/ "
+                "(see data/DATASET.md), or run `python -m mlproject prepare --demo` to test the pipeline."
+            )
 
-    # Clean dataset
-    cleaned_df, clean_stats = clean_dataset(df_raw)
-    print(f"\nData Cleaning Summary: {clean_stats}")
+    synthetic = (r_dir / DEMO_MARKER).exists()
+    # manual review: images the group judged wrong/unusable (data/manual_exclude.csv)
+    manual = []
+    excl_file = config.data_dir / "manual_exclude.csv"
+    if excl_file.exists():
+        import pandas as pd
+        excl = pd.read_csv(excl_file)
+        reasons = dict(zip(excl["relative_path"], excl["reason"]))
+        mask = df_raw["relative_path"].isin(reasons)
+        manual = [{"file": r, "label": l, "reason": "manual review: " + reasons[r]}
+                  for r, l in zip(df_raw.loc[mask, "relative_path"], df_raw.loc[mask, "label"])]
+        print(f"Manual review: excluding {int(mask.sum())} images listed in {excl_file.name}")
+        before_manual = df_raw["label"].value_counts().sort_index().to_dict()
+        df_raw = df_raw[~mask].reset_index(drop=True)
 
-    # Generate splits
+    cleaned_df, report = clean_dataset(df_raw)
+    if manual:
+        report["removed_manual_review"] = len(manual)
+        report["initial_samples"] += len(manual)
+        report["per_class_before"] = {k: int(v) for k, v in before_manual.items()}
+        report["removed_files"] = manual + report["removed_files"]
+    else:
+        report["removed_manual_review"] = 0
+    with open(s_dir / "cleaning_report.json", "w") as f:
+        json.dump(report, f, indent=2)
+    print(
+        f"\nCleaning: {report['initial_samples']} found -> {report['cleaned_samples']} kept "
+        f"(corrupt/small: {report['removed_corrupt_or_small']}, exact dups: {report['removed_exact_duplicates']}, "
+        f"cross-class near-dups: {report['removed_cross_class_near_duplicates']}, manual review: {report['removed_manual_review']}, "
+        f"same-class near-dup pairs grouped: {report['same_class_near_duplicate_pairs_grouped']})"
+    )
+
     create_splits(
         cleaned_df,
         output_dir=s_dir,
@@ -139,19 +174,17 @@ def prepare_dataset(
         val_ratio=config.val_ratio,
         test_ratio=config.test_ratio,
         seed=config.seed,
+        group_aware=group_aware,
+        extra_metadata={"synthetic_demo_data": synthetic},
     )
-
-    # Print summary
     print_split_summary(s_dir)
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Prepare Microcontroller Dataset and Splits")
+    parser = argparse.ArgumentParser(description="Prepare dataset and splits")
     parser.add_argument("--generate-demo", action="store_true", help="Generate synthetic demo dataset")
     parser.add_argument("--samples-per-class", type=int, default=40)
     args = parser.parse_args()
-
-    cfg = default_config
     if args.generate_demo:
-        generate_demo_dataset(cfg.raw_data_dir, samples_per_class=args.samples_per_class)
-    prepare_dataset(config=cfg)
+        generate_demo_dataset(default_config.raw_data_dir, samples_per_class=args.samples_per_class)
+    prepare_dataset(config=default_config)
