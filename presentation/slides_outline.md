@@ -3,8 +3,8 @@
 # ITRI626 Oral Presentation Outline
 ## Deep Learning for Microcontroller and Electronic Component Classification
 
-**Group**: Carlo Barnardo · Itumeleng Ntela · MEMBER 3  
-**Speakers**: Slides 1–3 Itumeleng Ntela (problem, dataset) · Slides 4–6 Carlo (method, setup) · Slides 7–9 MEMBER 3 (results, errors) · Slide 10 all  
+**Group**: Carlo Barnardo · Itumeleng Ntela · Karl Emmanuel Edoun  
+**Speakers**: Slides 1–3 Itumeleng Ntela (problem, dataset) · Slides 4–6 Carlo (method, setup) · Slides 7–9 Karl (results, errors) · Slide 10 all  
 **Module**: ITRI626  
 **Lecturer**: Prof. Absalom Ezugwu | **Facilitator**: Mr. Bernard Swanepoel  
 

@@ -84,3 +84,6 @@ If a class can't reach a reasonable size, it is better to **drop or merge it** (
 | transformer | 400 | 56 | 334 | grid substations, UPS/rack equipment, scenes |
 
 Reviewed by: Claude (AI assistant) on contact sheets · Confirmed by: MEMBER NAME
+
+## 6. Extra boards considered and rejected
+37 images from a collage of unknown origin (appears synthetic, no licence, one image per board, mostly classes we do not have) are in `data/extra_boards_not_used/`. They were not used in any experiment.
